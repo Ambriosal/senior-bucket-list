@@ -704,28 +704,9 @@ main {
   }
 
   .goal-card .badges,
-  .goal-card .expand-indicator {
-    display: none;
-  }
-
+  .goal-card .expand-indicator,
   .goal-card .goal-expand {
-    display: block;
-  }
-
-  .goal-card .goal-expand-inner {
-    overflow: visible;
-    margin: 0.2rem 0 0 1.3rem;
-  }
-
-  .goal-card .goal-notes,
-  .goal-card .goal-notes-empty {
-    color: #555;
-    font-size: 0.8rem;
-  }
-
-  .goal-card .goal-image {
-    max-width: 200px;
-    max-height: 150px;
+    display: none;
   }
 
   .goal-card h2 a {

@@ -178,11 +178,7 @@
       .goal-card h2 { font-size: 1rem; font-weight: 400; margin: 0; }
       .goal-card h2::before { content: "\\2610  "; }
       .goal-card[data-status="done"] h2::before { content: "\\2611  "; }
-      .goal-card .badges, .goal-card .expand-indicator, .goal-card .photo-upload-label { display: none; }
-      .goal-card .goal-expand { display: block; }
-      .goal-card .goal-expand-inner { overflow: visible; margin: 0.2rem 0 0 1.3rem; }
-      .goal-card .goal-notes, .goal-card .goal-notes-empty { border: none; background: transparent; color: #555; font-size: 0.8rem; padding: 0; resize: none; }
-      .goal-card .goal-image { max-width: 200px; max-height: 150px; }
+      .goal-card .badges, .goal-card .expand-indicator, .goal-card .photo-upload-label, .goal-card .goal-expand { display: none; }
       .goal-card .goal-actions { display: none; }
       .goal-card h2 a { color: inherit; text-decoration: underline; }
     }
