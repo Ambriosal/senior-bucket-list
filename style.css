@@ -27,12 +27,24 @@ html {
 }
 
 body {
+  position: relative;
+  isolation: isolate;
   margin: 0;
   padding: 0 1.5rem 3rem;
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
   line-height: 1.5;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("background.jpg") repeat;
+  opacity: 0.35;
+  z-index: -1;
+  pointer-events: none;
 }
 
 h1, h2, h3 {
@@ -634,6 +646,11 @@ main {
     background: #fff;
     color: #000;
     padding: 0;
+  }
+
+  body::before,
+  body::after {
+    display: none;
   }
 
   .print-btn,
