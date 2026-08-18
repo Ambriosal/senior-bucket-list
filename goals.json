@@ -109,7 +109,7 @@
       "effort": "complex",
       "link": null,
       "status": "not-started",
-      "notes": "",
+      "notes": "I am soon ready to release my top secret product to the world!",
       "imagePath": null,
       "mapCoords": null
     },
@@ -121,7 +121,7 @@
       "effort": "simple",
       "link": "https://arboretum.uoguelph.ca/education-events/ArbExpo",
       "status": "not-started",
-      "notes": "",
+      "notes": "For all my years, I hadn't gotten the chance to walk through the Arboretum",
       "imagePath": null,
       "mapCoords": null
     },
@@ -145,7 +145,7 @@
       "effort": "simple",
       "link": null,
       "status": "not-started",
-      "notes": "",
+      "notes": "Just to feel young again",
       "imagePath": null,
       "mapCoords": null
     },
@@ -169,7 +169,7 @@
       "effort": "simple",
       "link": null,
       "status": "not-started",
-      "notes": "",
+      "notes": "The one time I tried to visit I got the open hours wrong.",
       "imagePath": null,
       "mapCoords": null
     },
@@ -205,7 +205,7 @@
       "effort": "simple",
       "link": null,
       "status": "not-started",
-      "notes": "",
+      "notes": "Get your hot dog!",
       "imagePath": null,
       "mapCoords": null
     },
@@ -217,7 +217,7 @@
       "effort": "simple",
       "link": null,
       "status": "not-started",
-      "notes": "",
+      "notes": "I don't even have the socks.",
       "imagePath": null,
       "mapCoords": null
     },
@@ -366,18 +366,6 @@
       "mapCoords": null
     },
     {
-      "id": "guelph-beer-bus",
-      "title": "Go on the Guelph Beer Bus",
-      "category": "city",
-      "frequency": "one-time",
-      "effort": "simple",
-      "link": null,
-      "status": "not-started",
-      "notes": "",
-      "imagePath": null,
-      "mapCoords": null
-    },
-    {
       "id": "bovey-greenhouse",
       "title": "Visit the Bovey Greenhouse",
       "category": "academic",
@@ -385,7 +373,7 @@
       "effort": "simple",
       "link": null,
       "status": "not-started",
-      "notes": "",
+      "notes": "Where is this?",
       "imagePath": null,
       "mapCoords": null
     },
@@ -445,7 +433,7 @@
       "effort": "simple",
       "link": null,
       "status": "not-started",
-      "notes": "",
+      "notes": "The AC offers a lot of free classes.",
       "imagePath": null,
       "mapCoords": null
     },
@@ -478,7 +466,7 @@
       "title": "Ride the mechanical Bull at The Ranch",
       "category": "city",
       "frequency": "one-time",
-      "effort": "simple",
+      "effort": "complex",
       "link": null,
       "status": "not-started",
       "notes": "",
@@ -493,7 +481,7 @@
       "effort": "simple",
       "link": null,
       "status": "not-started",
-      "notes": "",
+      "notes": "Haven't picked a costume yet",
       "imagePath": null,
       "mapCoords": null
     },
