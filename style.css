@@ -41,8 +41,24 @@ body {
 }
 
 .subtitle {
-  margin: 0;
+  margin: 0 0 1rem;
   color: var(--color-muted);
+}
+
+.print-btn {
+  padding: 0.45rem 1.1rem;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.print-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 main {
@@ -284,6 +300,10 @@ main {
   padding: 2.5rem 1rem;
 }
 
+.print-checklist {
+  display: none;
+}
+
 .campus-map {
   margin-top: 2.5rem;
 }
@@ -469,4 +489,95 @@ main {
   font-size: 0.85rem;
   cursor: pointer;
   font-family: inherit;
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+    padding: 0;
+  }
+
+  .print-btn,
+  .todays-goal,
+  .progress,
+  .filters,
+  .result-count,
+  .goal-list,
+  .campus-map {
+    display: none !important;
+  }
+
+  .page-header {
+    padding: 0 0 1rem;
+    text-align: left;
+  }
+
+  .print-checklist {
+    display: block;
+  }
+
+  .print-group {
+    margin-top: 1.5rem;
+  }
+
+  .print-group:first-child {
+    margin-top: 0;
+  }
+
+  .print-group-title {
+    margin: 0 0 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #555;
+    border-bottom: 1px solid #999;
+    padding-bottom: 0.25rem;
+  }
+
+  .print-group-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .goal-card {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    padding: 0.4rem 0;
+    break-inside: avoid;
+  }
+
+  .goal-card h2 {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .goal-card h2::before {
+    content: "\2610  ";
+  }
+
+  .goal-card[data-status="done"] h2::before {
+    content: "\2611  ";
+  }
+
+  .goal-card .badges {
+    display: none;
+  }
+
+  .goal-card .goal-notes {
+    color: #555;
+    font-size: 0.8rem;
+  }
+
+  .goal-card h2 a {
+    color: inherit;
+    text-decoration: underline;
+  }
 }

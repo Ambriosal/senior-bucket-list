@@ -8,6 +8,10 @@
   const mapContainer = document.getElementById("mapContainer");
   const mapImage = document.getElementById("mapImage");
   const downloadPlacesBtn = document.getElementById("downloadPlacesBtn");
+  const printBtn = document.getElementById("printBtn");
+  const printChecklistEl = document.getElementById("printChecklist");
+
+  printBtn.addEventListener("click", () => window.print());
 
   const PLACE_TAGS = ["study-space", "quiet", "busy", "fun"];
 
@@ -97,7 +101,7 @@
       : goal.title;
 
     return `
-      <li class="goal-card">
+      <li class="goal-card" data-status="${goal.status}">
         <h2>${title}</h2>
         <div class="badges">${renderBadges(goal)}</div>
         ${goal.notes ? `<p class="goal-notes">${goal.notes}</p>` : ""}
@@ -113,6 +117,25 @@
     progressLabelEl.textContent = `${completed} of ${visible.length} completed (${percent}%)`;
   }
 
+  function renderPrintChecklist(visible) {
+    const groups = {};
+    visible.forEach((goal) => {
+      (groups[goal.category] = groups[goal.category] || []).push(goal);
+    });
+
+    printChecklistEl.innerHTML = Object.keys(CATEGORY_LABELS)
+      .filter((category) => groups[category] && groups[category].length)
+      .map(
+        (category) => `
+          <div class="print-group">
+            <h3 class="print-group-title">${CATEGORY_LABELS[category]}</h3>
+            <ul class="print-group-list">${groups[category].map(renderCard).join("")}</ul>
+          </div>
+        `
+      )
+      .join("");
+  }
+
   function render() {
     const filters = getActiveFilters();
     const visible = goals.filter((g) => matchesFilters(g, filters));
@@ -123,6 +146,8 @@
     listEl.innerHTML = visible.length
       ? visible.map(renderCard).join("")
       : `<li class="empty-state">No goals match these filters.</li>`;
+
+    renderPrintChecklist(visible);
   }
 
   filterGroups.forEach((group) => {
