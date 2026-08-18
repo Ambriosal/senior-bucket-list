@@ -7,9 +7,12 @@
   --color-border: #EDE4D6;
   --color-muted: #8A7C68;
 
-  /* category color coding, kept separate from the core palette */
-  --color-scope-university: #6B8F71;
-  --color-scope-city: #4C8C86;
+  /* goal category color coding, kept separate from the core palette */
+  --color-cat-clubs-involvements: #4C8C86;
+  --color-cat-academic: #6B8F71;
+  --color-cat-volunteering: #8A6FA3;
+  --color-cat-seasonal: #C77B3C;
+  --color-cat-city: #7C8CA6;
 }
 
 * {
@@ -231,12 +234,24 @@ main {
   text-transform: capitalize;
 }
 
-.badge-scope-university {
-  background: var(--color-scope-university);
+.badge-category-clubs-involvements {
+  background: var(--color-cat-clubs-involvements);
 }
 
-.badge-scope-city {
-  background: var(--color-scope-city);
+.badge-category-academic {
+  background: var(--color-cat-academic);
+}
+
+.badge-category-volunteering {
+  background: var(--color-cat-volunteering);
+}
+
+.badge-category-seasonal {
+  background: var(--color-cat-seasonal);
+}
+
+.badge-category-city {
+  background: var(--color-cat-city);
 }
 
 .badge-effort {

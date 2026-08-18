@@ -75,9 +75,17 @@
     return Object.entries(filters).every(([key, values]) => values.includes(goal[key]));
   }
 
+  const CATEGORY_LABELS = {
+    "clubs-involvements": "Clubs & Involvements",
+    academic: "Academic",
+    volunteering: "Volunteering",
+    seasonal: "Seasonal",
+    city: "City",
+  };
+
   function renderBadges(goal) {
     return `
-      <span class="badge badge-scope-${goal.scope}">${goal.scope}</span>
+      <span class="badge badge-category-${goal.category}">${CATEGORY_LABELS[goal.category] || goal.category}</span>
       <span class="badge badge-effort">${goal.effort}</span>
       <span class="badge badge-status-${goal.status}">${goal.status.replace("-", " ")}</span>
     `;

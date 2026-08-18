@@ -3,7 +3,7 @@
     "goals.json is the single source of truth for the bucket list.",
     "Shape: { \"_schema\": [...], \"goals\": [ goal, ... ] }.",
     "Each goal: { id (unique kebab-case string), title (string),",
-    "  scope: \"university\" | \"city\",",
+    "  category: \"clubs-involvements\" | \"academic\" | \"volunteering\" | \"seasonal\" | \"city\",",
     "  frequency: \"one-time\" | \"ongoing\",",
     "  effort: \"simple\" | \"complex\",",
     "  link (url string or null),",
@@ -11,13 +11,13 @@
     "  notes (free-text string, may be empty),",
     "  mapCoords: { \"x\": 0-1, \"y\": 0-1 } as % of map image, or null (campus goals only) }.",
     "This file holds official progress: edit status/notes/mapCoords and commit to update it.",
-    "Visitors' own copies live in localStorage only and never write back here."
+    "Visitors own copies live in localStorage only and never write back here."
   ],
   "goals": [
     {
       "id": "visit-campus-buildings",
       "title": "Visit all the publicly accessible buildings on campus",
-      "scope": "university",
+      "category": "academic",
       "frequency": "ongoing",
       "effort": "complex",
       "link": null,
@@ -28,7 +28,7 @@
     {
       "id": "volunteer-project-serve",
       "title": "Volunteer with Project SERVE",
-      "scope": "university",
+      "category": "volunteering",
       "frequency": "ongoing",
       "effort": "complex",
       "link": null,
@@ -39,7 +39,7 @@
     {
       "id": "kayak-grand-river",
       "title": "Go kayaking on the Grand River",
-      "scope": "city",
+      "category": "city",
       "frequency": "one-time",
       "effort": "simple",
       "link": "https://theboathouseguelph.com/speed-river-paddling/",
@@ -50,7 +50,7 @@
     {
       "id": "trivia-tuesday",
       "title": "Go to Trivia Tuesday",
-      "scope": "city",
+      "category": "city",
       "frequency": "ongoing",
       "effort": "simple",
       "link": null,
@@ -61,7 +61,7 @@
     {
       "id": "apply-grad-school",
       "title": "Apply to grad school",
-      "scope": "university",
+      "category": "academic",
       "frequency": "ongoing",
       "effort": "complex",
       "link": null,
@@ -72,7 +72,7 @@
     {
       "id": "club-exec",
       "title": "Become an executive of a club",
-      "scope": "university",
+      "category": "clubs-involvements",
       "frequency": "one-time",
       "effort": "complex",
       "link": null,
@@ -83,7 +83,7 @@
     {
       "id": "club-frequent-member",
       "title": "Be a frequent member of a club",
-      "scope": "university",
+      "category": "clubs-involvements",
       "frequency": "ongoing",
       "effort": "simple",
       "link": null,
@@ -94,7 +94,7 @@
     {
       "id": "apply-ignitelab",
       "title": "Apply to the Wood Centre IgniteLab",
-      "scope": "university",
+      "category": "academic",
       "frequency": "one-time",
       "effort": "complex",
       "link": null,
@@ -105,7 +105,7 @@
     {
       "id": "arboretum-expo",
       "title": "Visit the Arboretum / Arboretum Expo",
-      "scope": "university",
+      "category": "seasonal",
       "frequency": "one-time",
       "effort": "simple",
       "link": "https://arboretum.uoguelph.ca/education-events/ArbExpo",
@@ -116,7 +116,7 @@
     {
       "id": "go-hiking",
       "title": "Go hiking on a trail",
-      "scope": "city",
+      "category": "city",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -127,7 +127,7 @@
     {
       "id": "o-week-events",
       "title": "Participate in O-Week events",
-      "scope": "university",
+      "category": "seasonal",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -138,7 +138,7 @@
     {
       "id": "library-floors",
       "title": "Study on all floors of the library",
-      "scope": "university",
+      "category": "academic",
       "frequency": "ongoing",
       "effort": "simple",
       "link": null,
@@ -149,7 +149,7 @@
     {
       "id": "art-gallery-guelph",
       "title": "Visit the Art Gallery of Guelph",
-      "scope": "city",
+      "category": "city",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -160,7 +160,7 @@
     {
       "id": "tonys-billiards",
       "title": "Visit Tony's Billiards",
-      "scope": "city",
+      "category": "city",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -171,7 +171,7 @@
     {
       "id": "bullring-live-music",
       "title": "Visit live music/events at the Bullring",
-      "scope": "university",
+      "category": "clubs-involvements",
       "frequency": "ongoing",
       "effort": "simple",
       "link": null,
@@ -182,7 +182,7 @@
     {
       "id": "bobs-dogs",
       "title": "Try Bob's Dogs",
-      "scope": "city",
+      "category": "city",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -193,7 +193,7 @@
     {
       "id": "buy-uog-merch",
       "title": "Buy UoG merch",
-      "scope": "university",
+      "category": "clubs-involvements",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -204,7 +204,7 @@
     {
       "id": "campus-dining-tour",
       "title": "Eat at every dining spot on campus",
-      "scope": "university",
+      "category": "academic",
       "frequency": "ongoing",
       "effort": "complex",
       "link": null,
@@ -215,7 +215,7 @@
     {
       "id": "new-ramen-place",
       "title": "Visit the new ramen place",
-      "scope": "city",
+      "category": "city",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -226,7 +226,7 @@
     {
       "id": "yellow-bench-friend",
       "title": "Make a friend on the Yellow Bench by Zavitz Hall",
-      "scope": "university",
+      "category": "academic",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -237,7 +237,7 @@
     {
       "id": "cfru-radio",
       "title": "Tune into CFRU radio",
-      "scope": "university",
+      "category": "clubs-involvements",
       "frequency": "ongoing",
       "effort": "simple",
       "link": null,
@@ -248,7 +248,7 @@
     {
       "id": "guelph-storm-game",
       "title": "Go to a Guelph Storm game",
-      "scope": "city",
+      "category": "city",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -259,7 +259,7 @@
     {
       "id": "snowball-fight-johnston-green",
       "title": "Have a snowball fight on Johnston Green",
-      "scope": "university",
+      "category": "seasonal",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -270,7 +270,7 @@
     {
       "id": "athletics-open-sports",
       "title": "Try open sports at the Athletics Centre",
-      "scope": "university",
+      "category": "clubs-involvements",
       "frequency": "ongoing",
       "effort": "simple",
       "link": null,
@@ -281,7 +281,7 @@
     {
       "id": "cat-cafe",
       "title": "Visit the Cat Cafe",
-      "scope": "city",
+      "category": "city",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -292,7 +292,7 @@
     {
       "id": "random-club-event",
       "title": "Join a random club event",
-      "scope": "university",
+      "category": "clubs-involvements",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -303,7 +303,7 @@
     {
       "id": "weekly-dog-visits",
       "title": "Visit the weekly dog visits",
-      "scope": "university",
+      "category": "academic",
       "frequency": "ongoing",
       "effort": "simple",
       "link": null,
@@ -314,7 +314,7 @@
     {
       "id": "study-random-lounges",
       "title": "Study in random lounges around campus",
-      "scope": "university",
+      "category": "academic",
       "frequency": "ongoing",
       "effort": "simple",
       "link": null,
@@ -325,7 +325,7 @@
     {
       "id": "read-the-ontarion",
       "title": "Read the Ontarion",
-      "scope": "university",
+      "category": "clubs-involvements",
       "frequency": "ongoing",
       "effort": "simple",
       "link": null,
@@ -336,7 +336,7 @@
     {
       "id": "guelph-beer-bus",
       "title": "Go on the Guelph Beer Bus",
-      "scope": "city",
+      "category": "city",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -347,7 +347,7 @@
     {
       "id": "bovey-greenhouse",
       "title": "Visit the Bovey Greenhouse",
-      "scope": "university",
+      "category": "academic",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -358,7 +358,7 @@
     {
       "id": "juggling-club",
       "title": "Join the juggling club",
-      "scope": "university",
+      "category": "clubs-involvements",
       "frequency": "ongoing",
       "effort": "simple",
       "link": null,
@@ -369,7 +369,7 @@
     {
       "id": "mackinnon-play",
       "title": "See a play at MacKinnon theatre",
-      "scope": "university",
+      "category": "clubs-involvements",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -380,7 +380,7 @@
     {
       "id": "downtown-cafe-study",
       "title": "Study at a café downtown",
-      "scope": "city",
+      "category": "city",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -391,7 +391,7 @@
     {
       "id": "research",
       "title": "Participate in a research trial",
-      "scope": "university",
+      "category": "academic",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -402,7 +402,51 @@
     {
       "id": "fitness-class",
       "title": "Join a fitness class",
-      "scope": "city",
+      "category": "city",
+      "frequency": "one-time",
+      "effort": "simple",
+      "link": null,
+      "status": "not-started",
+      "notes": "",
+      "mapCoords": null
+    },
+    {
+      "id": "conservation",
+      "title": "Go to Guelph Lake Conservation Area",
+      "category": "city",
+      "frequency": "one-time",
+      "effort": "simple",
+      "link": null,
+      "status": "not-started",
+      "notes": "",
+      "mapCoords": null
+    },
+    {
+      "id": "board-game",
+      "title": "Visit the board game cafe",
+      "category": "city",
+      "frequency": "one-time",
+      "effort": "simple",
+      "link": null,
+      "status": "not-started",
+      "notes": "",
+      "mapCoords": null
+    },
+    {
+      "id": "the-ranch",
+      "title": "Ride the mechanical Bull at The Ranch",
+      "category": "city",
+      "frequency": "one-time",
+      "effort": "simple",
+      "link": null,
+      "status": "not-started",
+      "notes": "",
+      "mapCoords": null
+    },
+    {
+      "id": "halloween",
+      "title": "Halloweekend!",
+      "category": "seasonal",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
@@ -413,7 +457,7 @@
     {
       "id": "take-a-paws",
       "title": "Go to Take a Paws",
-      "scope": "university",
+      "category": "seasonal",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
