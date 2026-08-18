@@ -21,7 +21,7 @@
       "frequency": "ongoing",
       "effort": "complex",
       "link": null,
-      "status": "not-started",
+      "status": "in-progress",
       "notes": "",
       "mapCoords": null
     },
@@ -381,6 +381,17 @@
       "id": "downtown-cafe-study",
       "title": "Study at a café downtown",
       "scope": "city",
+      "frequency": "one-time",
+      "effort": "simple",
+      "link": null,
+      "status": "not-started",
+      "notes": "",
+      "mapCoords": null
+    },
+    {
+      "id": "research",
+      "title": "Participate in a research trial",
+      "scope": "university",
       "frequency": "one-time",
       "effort": "simple",
       "link": null,

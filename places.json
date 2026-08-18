@@ -1,0 +1,28 @@
+{
+  "_schema": [
+    "places.json stores personal map notes/pins about campus spots.",
+    "Separate from the bucket-list goals in goals.json — not tied to any goal.",
+    "Shape: { \"_schema\": [...], \"places\": [ place, ... ] }.",
+    "Each place: { id (unique kebab-case string), title (string, e.g. building name),",
+    "  description (string, free text — how it felt, what I saw),",
+    "  tags: array of \"study-space\" | \"quiet\" | \"busy\" | \"fun\",",
+    "  coords: { \"x\": 0-1, \"y\": 0-1 } as % of map1.png }.",
+    "Edit via the campus map UI locally, then use \"Download updated places.json\",",
+    "replace this file with the download, and commit."
+  ],
+  "places": [
+    {
+      "id": "university-centre",
+      "title": "University Centre",
+      "description": "The Hub",
+      "tags": [
+        "busy",
+        "fun"
+      ],
+      "coords": {
+        "x": 0.574,
+        "y": 0.604
+      }
+    }
+  ]
+}
