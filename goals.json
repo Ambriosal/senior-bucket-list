@@ -1,7 +1,7 @@
 {
   "_schema": [
     "goals.json is the single source of truth for the bucket list.",
-    "Shape: { \"_schema\": [...], \"goals\": [ goal, ... ] }.",
+    "Shape: { \"_schema\": [...], \"lastUpdated\": \"YYYY-MM-DD\", \"goals\": [ goal, ... ] }.",
     "Each goal: { id (unique kebab-case string), title (string),",
     "  category: \"clubs-involvements\" | \"academic\" | \"volunteering\" | \"seasonal\" | \"city\",",
     "  frequency: \"one-time\" | \"ongoing\",",
@@ -12,8 +12,10 @@
     "  imagePath (relative path to an image under assets/images/, or null),",
     "  mapCoords: { \"x\": 0-1, \"y\": 0-1 } as % of map image, or null (campus goals only) }.",
     "This file holds official progress: edit status/notes/imagePath/mapCoords and commit to update it.",
+    "Bump lastUpdated whenever you commit a goals.json change so the page header stays accurate.",
     "Visitors own copies live in localStorage only and never write back here."
   ],
+  "lastUpdated": "2026-08-18",
   "goals": [
     {
       "id": "visit-campus-buildings",
@@ -41,7 +43,7 @@
     },
     {
       "id": "kayak-grand-river",
-      "title": "Go kayaking on the Grand River",
+      "title": "Go kayaking on Speed River",
       "category": "city",
       "frequency": "one-time",
       "effort": "simple",
@@ -71,7 +73,7 @@
       "effort": "complex",
       "link": null,
       "status": "not-started",
-      "notes": "",
+      "notes": "This will be a long and tiring process.",
       "imagePath": null,
       "mapCoords": null
     },

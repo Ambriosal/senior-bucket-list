@@ -4,6 +4,7 @@
   const progressFillEl = document.getElementById("progressFill");
   const progressLabelEl = document.getElementById("progressLabel");
   const todaysGoalEl = document.getElementById("todaysGoal");
+  const lastUpdatedEl = document.getElementById("lastUpdated");
   const filterGroups = document.querySelectorAll(".filter-group");
   const printBtn = document.getElementById("printBtn");
   const printChecklistEl = document.getElementById("printChecklist");
@@ -57,6 +58,16 @@
       <span class="todays-goal-badge">Today's Goal</span>
       <h2>${title}</h2>
     `;
+  }
+
+  function renderLastUpdated(dateStr) {
+    if (!dateStr) return;
+    const date = new Date(`${dateStr}T00:00:00`);
+    lastUpdatedEl.textContent = `Last updated ${date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })}`;
   }
 
   function getActiveFilters() {
@@ -207,6 +218,7 @@
     .then((res) => res.json())
     .then((goalsData) => {
       goals = goalsData.goals;
+      renderLastUpdated(goalsData.lastUpdated);
       renderTodaysGoal();
       render();
     });
