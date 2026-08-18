@@ -177,6 +177,16 @@
 
   filterGroups.forEach((group) => {
     group.addEventListener("change", render);
+
+    group.querySelectorAll(".filter-action").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const checked = btn.dataset.action === "all";
+        group.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+          input.checked = checked;
+        });
+        render();
+      });
+    });
   });
 
   listEl.addEventListener("click", (e) => {

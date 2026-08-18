@@ -217,6 +217,28 @@ main {
   margin-right: 0.25rem;
 }
 
+.filter-group-actions {
+  display: inline-flex;
+  gap: 0.4rem;
+  margin-right: 0.25rem;
+}
+
+.filter-action {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.filter-action:hover {
+  color: var(--color-accent-2);
+}
+
 .filter-pill {
   display: inline-flex;
   align-items: center;
