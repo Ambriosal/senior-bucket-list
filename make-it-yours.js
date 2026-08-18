@@ -219,6 +219,12 @@
           <label class="filter-pill"><input type="checkbox" value="simple" checked><span>Simple</span></label>
           <label class="filter-pill"><input type="checkbox" value="complex" checked><span>Complex</span></label>
         </fieldset>
+        <fieldset class="filter-group" data-filter-key="status">
+          <legend>Status</legend>
+          <label class="filter-pill"><input type="checkbox" value="not-started" checked><span>Not Started</span></label>
+          <label class="filter-pill"><input type="checkbox" value="in-progress" checked><span>In Progress</span></label>
+          <label class="filter-pill"><input type="checkbox" value="done" checked><span>Done</span></label>
+        </fieldset>
       </section>
       <p class="result-count" id="resultCount"></p>
       <div class="add-goal-bar"><button type="button" id="addGoalBtn" class="print-btn">+ Add a goal</button></div>
@@ -374,7 +380,7 @@
 
     function matchesFilters(goal, filters) {
       return Object.keys(filters).every(function (key) {
-        return filters[key].indexOf(goal[key]) !== -1;
+        return filters[key].length === 0 || filters[key].indexOf(goal[key]) !== -1;
       });
     }
 

@@ -70,7 +70,7 @@
   }
 
   function matchesFilters(goal, filters) {
-    return Object.entries(filters).every(([key, values]) => values.includes(goal[key]));
+    return Object.entries(filters).every(([key, values]) => values.length === 0 || values.includes(goal[key]));
   }
 
   const CATEGORY_LABELS = {
