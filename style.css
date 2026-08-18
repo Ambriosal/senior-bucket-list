@@ -45,7 +45,15 @@ body {
   color: var(--color-muted);
 }
 
+.header-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
 .print-btn {
+  display: inline-block;
   padding: 0.45rem 1.1rem;
   border-radius: 20px;
   border: 1px solid var(--color-border);
@@ -54,6 +62,7 @@ body {
   font-size: 0.85rem;
   cursor: pointer;
   font-family: inherit;
+  text-decoration: none;
 }
 
 .print-btn:hover {
@@ -199,6 +208,27 @@ main {
   margin: 0 0 1rem 0.25rem;
 }
 
+.category-group {
+  margin-bottom: 2rem;
+}
+
+.category-group:last-child {
+  margin-bottom: 0;
+}
+
+.category-group-title {
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.4rem;
+  font-size: 1.15rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.category-group-title-clubs-involvements { border-bottom-color: var(--color-cat-clubs-involvements); }
+.category-group-title-academic { border-bottom-color: var(--color-cat-academic); }
+.category-group-title-volunteering { border-bottom-color: var(--color-cat-volunteering); }
+.category-group-title-seasonal { border-bottom-color: var(--color-cat-seasonal); }
+.category-group-title-city { border-bottom-color: var(--color-cat-city); }
+
 .goal-list {
   list-style: none;
   margin: 0;
@@ -294,7 +324,6 @@ main {
 }
 
 .empty-state {
-  grid-column: 1 / -1;
   text-align: center;
   color: var(--color-muted);
   padding: 2.5rem 1rem;
@@ -491,6 +520,45 @@ main {
   font-family: inherit;
 }
 
+.mit-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.mit-card p {
+  margin: 0 0 1rem;
+}
+
+.mit-points {
+  margin: 0 0 1.25rem;
+  padding-left: 1.2rem;
+  color: var(--color-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mit-status {
+  margin: 0.75rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.mit-back {
+  margin-top: 1.25rem;
+}
+
+.mit-back a {
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.mit-back a:hover {
+  color: var(--color-accent);
+}
+
 @media print {
   body {
     background: #fff;
@@ -503,7 +571,7 @@ main {
   .progress,
   .filters,
   .result-count,
-  .goal-list,
+  .category-group,
   .campus-map {
     display: none !important;
   }

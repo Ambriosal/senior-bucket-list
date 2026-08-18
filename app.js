@@ -117,19 +117,38 @@
     progressLabelEl.textContent = `${completed} of ${visible.length} completed (${percent}%)`;
   }
 
-  function renderPrintChecklist(visible) {
+  function groupByCategory(visible) {
     const groups = {};
     visible.forEach((goal) => {
       (groups[goal.category] = groups[goal.category] || []).push(goal);
     });
+    return Object.keys(CATEGORY_LABELS).filter((category) => groups[category] && groups[category].length).map((category) => ({
+      category,
+      label: CATEGORY_LABELS[category],
+      goals: groups[category],
+    }));
+  }
 
-    printChecklistEl.innerHTML = Object.keys(CATEGORY_LABELS)
-      .filter((category) => groups[category] && groups[category].length)
+  function renderGoalGroups(visible) {
+    return groupByCategory(visible)
       .map(
-        (category) => `
+        (group) => `
+          <section class="category-group">
+            <h2 class="category-group-title category-group-title-${group.category}">${group.label}</h2>
+            <ul class="goal-list">${group.goals.map(renderCard).join("")}</ul>
+          </section>
+        `
+      )
+      .join("");
+  }
+
+  function renderPrintChecklist(visible) {
+    printChecklistEl.innerHTML = groupByCategory(visible)
+      .map(
+        (group) => `
           <div class="print-group">
-            <h3 class="print-group-title">${CATEGORY_LABELS[category]}</h3>
-            <ul class="print-group-list">${groups[category].map(renderCard).join("")}</ul>
+            <h3 class="print-group-title">${group.label}</h3>
+            <ul class="print-group-list">${group.goals.map(renderCard).join("")}</ul>
           </div>
         `
       )
@@ -144,8 +163,8 @@
     renderProgress(visible);
 
     listEl.innerHTML = visible.length
-      ? visible.map(renderCard).join("")
-      : `<li class="empty-state">No goals match these filters.</li>`;
+      ? renderGoalGroups(visible)
+      : `<p class="empty-state">No goals match these filters.</p>`;
 
     renderPrintChecklist(visible);
   }

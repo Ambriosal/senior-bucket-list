@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make It Yours — Senior Year Bucket List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="page-header">
+    <h1>Make It Yours</h1>
+    <p class="subtitle">Same list, blank slate — track your own progress, no strings attached.</p>
+  </header>
+
+  <main>
+    <section class="mit-card">
+      <p>
+        This downloads a single HTML file with the same bucket list on this
+        site, but with everyone's progress cleared. Open it in any browser —
+        no install, no server, no account.
+      </p>
+      <ul class="mit-points">
+        <li>Check off goals and jot notes — saved in your browser's local
+          storage only.</li>
+        <li>Nothing you do in your copy is ever sent anywhere, including
+          back to this site.</li>
+        <li>It's a plain file you keep: move it, rename it, back it up,
+          whatever you'd do with any file on your computer.</li>
+      </ul>
+      <button type="button" id="downloadBtn" class="download-btn">
+        Download your copy
+      </button>
+      <p class="mit-status" id="mitStatus" aria-live="polite"></p>
+    </section>
+
+    <p class="mit-back"><a href="index.html">&larr; Back to the list</a></p>
+  </main>
+
+  <script src="make-it-yours.js"></script>
+</body>
+</html>
