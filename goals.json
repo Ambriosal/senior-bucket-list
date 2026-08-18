@@ -9,8 +9,9 @@
     "  link (url string or null),",
     "  status: \"not-started\" | \"in-progress\" | \"done\",",
     "  notes (free-text string, may be empty),",
+    "  imagePath (relative path to an image under assets/images/, or null),",
     "  mapCoords: { \"x\": 0-1, \"y\": 0-1 } as % of map image, or null (campus goals only) }.",
-    "This file holds official progress: edit status/notes/mapCoords and commit to update it.",
+    "This file holds official progress: edit status/notes/imagePath/mapCoords and commit to update it.",
     "Visitors own copies live in localStorage only and never write back here."
   ],
   "goals": [
@@ -23,6 +24,7 @@
       "link": null,
       "status": "in-progress",
       "notes": "",
+      "imagePath": "assets/images/sample-1.svg",
       "mapCoords": null
     },
     {
@@ -34,6 +36,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -45,6 +48,7 @@
       "link": "https://theboathouseguelph.com/speed-river-paddling/",
       "status": "not-started",
       "notes": "",
+      "imagePath": "assets/images/sample-2.svg",
       "mapCoords": null
     },
     {
@@ -56,6 +60,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -67,6 +72,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -78,6 +84,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -89,6 +96,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -100,6 +108,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -111,6 +120,7 @@
       "link": "https://arboretum.uoguelph.ca/education-events/ArbExpo",
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -122,6 +132,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -133,6 +144,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -144,6 +156,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -155,6 +168,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -166,6 +180,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -177,6 +192,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -188,6 +204,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -199,6 +216,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -210,6 +228,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -221,6 +240,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -232,6 +252,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -243,6 +264,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -254,6 +276,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -265,6 +288,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -276,6 +300,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -287,6 +312,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -298,6 +324,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -309,6 +336,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -320,6 +348,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -331,6 +360,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -342,6 +372,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -353,6 +384,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -364,6 +396,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -375,6 +408,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -386,6 +420,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -397,6 +432,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -408,6 +444,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -419,6 +456,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -430,6 +468,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -441,6 +480,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -452,6 +492,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     },
     {
@@ -463,6 +504,7 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
       "mapCoords": null
     }
   ]

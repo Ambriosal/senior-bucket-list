@@ -69,14 +69,27 @@
     .filter-pill:has(input:checked) { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
     .filter-pill input { margin: 0; accent-color: var(--color-accent); }
     .result-count { color: var(--color-muted); font-size: 0.9rem; margin: 0 0 1rem 0.25rem; }
+    .category-group { margin-bottom: 2rem; }
+    .category-group:last-child { margin-bottom: 0; }
+    .category-group-title {
+      margin: 0 0 0.75rem; padding-bottom: 0.4rem; font-size: 1.15rem; border-bottom: 2px solid var(--color-border);
+    }
+    .category-group-title-clubs-involvements { border-bottom-color: var(--color-cat-clubs-involvements); }
+    .category-group-title-academic { border-bottom-color: var(--color-cat-academic); }
+    .category-group-title-volunteering { border-bottom-color: var(--color-cat-volunteering); }
+    .category-group-title-seasonal { border-bottom-color: var(--color-cat-seasonal); }
+    .category-group-title-city { border-bottom-color: var(--color-cat-city); }
     .goal-list {
       list-style: none; margin: 0; padding: 0; display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem;
     }
     .goal-card {
-      background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 16px;
-      padding: 1.1rem; display: flex; flex-direction: column; gap: 0.6rem;
+      position: relative; background: var(--color-card-bg); border: 1px solid var(--color-border);
+      border-radius: 16px; padding: 1.1rem; padding-right: 2.4rem; display: flex; flex-direction: column;
+      gap: 0.6rem; cursor: pointer; transition: border-color 0.15s ease;
     }
+    .goal-card:hover { border-color: var(--color-accent); }
+    .goal-card.goal-form { cursor: default; }
     .goal-card h2 { margin: 0; font-size: 1.05rem; line-height: 1.35; }
     .goal-card h2 a { color: inherit; text-decoration: none; border-bottom: 1px dashed var(--color-accent); }
     .goal-card h2 a:hover { color: var(--color-accent); }
@@ -106,6 +119,27 @@
       color: var(--color-muted); cursor: pointer; text-decoration: underline;
     }
     .goal-actions button:hover { color: var(--color-accent); }
+    .expand-indicator {
+      position: absolute; top: 1.1rem; right: 1.1rem; color: var(--color-muted);
+      transition: transform 0.25s ease;
+    }
+    .goal-card.expanded .expand-indicator { transform: rotate(180deg); }
+    .goal-expand { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease; }
+    .goal-card.expanded .goal-expand { grid-template-rows: 1fr; }
+    .goal-expand-inner { overflow: hidden; display: flex; flex-direction: column; gap: 0.6rem; }
+    .goal-notes-empty { margin: 0; color: var(--color-muted); font-size: 0.85rem; font-style: italic; }
+    .goal-image { width: 100%; max-height: 220px; object-fit: cover; border-radius: 10px; display: block; }
+    .photo-upload-label {
+      display: inline-block; align-self: flex-start; padding: 0.35rem 0.9rem; border-radius: 20px;
+      border: 1px solid var(--color-border); background: var(--color-bg); font-size: 0.78rem;
+      cursor: pointer; color: var(--color-muted);
+    }
+    .photo-upload-label:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    .storage-meter { margin-bottom: 1rem; }
+    .storage-track { width: 100%; height: 8px; background: var(--color-border); border-radius: 20px; overflow: hidden; }
+    .storage-fill { height: 100%; width: 0%; background: var(--color-cat-academic); border-radius: 20px; transition: width 0.25s ease, background 0.25s ease; }
+    .storage-fill.storage-fill-warning { background: var(--color-accent); }
+    .storage-label { margin: 0.4rem 0 0 0.25rem; font-size: 0.78rem; color: var(--color-muted); }
     .add-goal-bar { margin-bottom: 1rem; }
     .goal-form { gap: 0.55rem; }
     .goal-form .field-label {
@@ -123,11 +157,11 @@
       background: var(--color-bg); font-size: 0.8rem; cursor: pointer; font-family: inherit;
     }
     .goal-form-actions button.primary { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
-    .empty-state { grid-column: 1 / -1; text-align: center; color: var(--color-muted); padding: 2.5rem 1rem; }
+    .empty-state { text-align: center; color: var(--color-muted); padding: 2.5rem 1rem; }
     .print-checklist { display: none; }
     @media print {
       body { background: #fff; color: #000; padding: 0; }
-      .print-btn, .todays-goal, .progress, .filters, .result-count, .goal-list, .add-goal-bar { display: none !important; }
+      .print-btn, .todays-goal, .progress, .storage-meter, .filters, .result-count, #goalList, .add-goal-bar { display: none !important; }
       .page-header { padding: 0 0 1rem; text-align: left; }
       .print-checklist { display: block; }
       .print-group { margin-top: 1.5rem; }
@@ -138,14 +172,17 @@
       }
       .print-group-list { list-style: none; margin: 0; padding: 0; }
       .goal-card {
-        display: flex; align-items: baseline; gap: 0.5rem; background: transparent; border: none;
+        display: block; background: transparent; border: none;
         border-bottom: 1px solid #ccc; border-radius: 0; padding: 0.4rem 0; break-inside: avoid;
       }
-      .goal-card h2 { font-size: 1rem; font-weight: 400; }
+      .goal-card h2 { font-size: 1rem; font-weight: 400; margin: 0; }
       .goal-card h2::before { content: "\\2610  "; }
       .goal-card[data-status="done"] h2::before { content: "\\2611  "; }
-      .goal-card .badges { display: none; }
-      .goal-card .goal-notes { border: none; background: transparent; color: #555; font-size: 0.8rem; padding: 0; resize: none; }
+      .goal-card .badges, .goal-card .expand-indicator, .goal-card .photo-upload-label { display: none; }
+      .goal-card .goal-expand { display: block; }
+      .goal-card .goal-expand-inner { overflow: visible; margin: 0.2rem 0 0 1.3rem; }
+      .goal-card .goal-notes, .goal-card .goal-notes-empty { border: none; background: transparent; color: #555; font-size: 0.8rem; padding: 0; resize: none; }
+      .goal-card .goal-image { max-width: 200px; max-height: 150px; }
       .goal-card .goal-actions { display: none; }
       .goal-card h2 a { color: inherit; text-decoration: underline; }
     }
@@ -162,6 +199,10 @@
       <section class="progress" aria-label="Progress">
         <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
         <p class="progress-label" id="progressLabel"></p>
+      </section>
+      <section class="storage-meter" aria-label="Browser storage used">
+        <div class="storage-track"><div class="storage-fill" id="storageFill"></div></div>
+        <p class="storage-label" id="storageLabel"></p>
       </section>
       <section class="filters" aria-label="Filter goals">
         <fieldset class="filter-group" data-filter-key="category">
@@ -185,7 +226,7 @@
       </section>
       <p class="result-count" id="resultCount"></p>
       <div class="add-goal-bar"><button type="button" id="addGoalBtn" class="print-btn">+ Add a goal</button></div>
-      <ul class="goal-list" id="goalList" aria-live="polite"></ul>
+      <div id="goalList" aria-live="polite"></div>
       <div class="print-checklist" id="printChecklist"></div>
     </main>
   `;
@@ -206,10 +247,15 @@
     var FREQUENCY_LABELS = { "one-time": "One-time", ongoing: "Ongoing" };
     var EFFORT_LABELS = { simple: "Simple", complex: "Complex" };
 
+    var STORAGE_LIMIT_BYTES = 5 * 1024 * 1024;
+    var MAX_PHOTO_BYTES = 3 * 1024 * 1024;
+
     var listEl = document.getElementById("goalList");
     var countEl = document.getElementById("resultCount");
     var progressFillEl = document.getElementById("progressFill");
     var progressLabelEl = document.getElementById("progressLabel");
+    var storageFillEl = document.getElementById("storageFill");
+    var storageLabelEl = document.getElementById("storageLabel");
     var todaysGoalEl = document.getElementById("todaysGoal");
     var printChecklistEl = document.getElementById("printChecklist");
     var printBtn = document.getElementById("printBtn");
@@ -218,6 +264,7 @@
 
     var isAdding = false;
     var editingId = null;
+    var expandedIds = {};
 
     printBtn.addEventListener("click", function () {
       window.print();
@@ -235,12 +282,17 @@
         if (Array.isArray(stored)) return stored;
       } catch (e) {}
       return GOALS.map(function (g) {
-        return Object.assign({}, g, { status: "not-started", notes: "" });
+        return Object.assign({}, g, { status: "not-started", notes: "", imagePath: null });
       });
     }
 
     function saveGoals() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(goals));
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(goals));
+        return true;
+      } catch (e) {
+        return false;
+      }
     }
 
     var goals = loadGoals();
@@ -341,20 +393,40 @@
       );
     }
 
+    function renderPhotoArea(goal) {
+      if (goal.imagePath) {
+        return (
+          '<img class="goal-image" src="' + goal.imagePath + '" alt="' + escapeHtml(goal.title) + '">' +
+          '<div class="goal-actions"><button type="button" data-action="remove-photo" data-goal-id="' + goal.id + '">Remove photo</button></div>'
+        );
+      }
+      return (
+        '<label class="photo-upload-label">+ Add a photo' +
+          '<input type="file" accept="image/*" data-action="upload-photo" data-goal-id="' + goal.id + '" hidden>' +
+        "</label>"
+      );
+    }
+
     function renderCard(goal) {
       var title = goal.link
         ? '<a href="' + escapeHtml(goal.link) + '" target="_blank" rel="noopener">' + escapeHtml(goal.title) + "</a>"
         : escapeHtml(goal.title);
 
+      var expandedClass = expandedIds[goal.id] ? " expanded" : "";
+
       return (
-        '<li class="goal-card" data-status="' + goal.status + '">' +
+        '<li class="goal-card' + expandedClass + '" data-status="' + goal.status + '" data-goal-id="' + goal.id + '">' +
           "<h2>" + title + "</h2>" +
           '<div class="badges">' + renderBadges(goal) + "</div>" +
-          '<textarea class="goal-notes" data-action="notes" data-goal-id="' + goal.id + '" placeholder="Add a note...">' + escapeHtml(goal.notes) + "</textarea>" +
-          '<div class="goal-actions">' +
-            '<button type="button" data-action="edit-goal" data-goal-id="' + goal.id + '">Edit</button>' +
-            '<button type="button" data-action="delete-goal" data-goal-id="' + goal.id + '">Delete</button>' +
-          "</div>" +
+          '<span class="expand-indicator" aria-hidden="true">&#9662;</span>' +
+          '<div class="goal-expand"><div class="goal-expand-inner">' +
+            '<textarea class="goal-notes" data-action="notes" data-goal-id="' + goal.id + '" placeholder="Add a note...">' + escapeHtml(goal.notes) + "</textarea>" +
+            renderPhotoArea(goal) +
+            '<div class="goal-actions">' +
+              '<button type="button" data-action="edit-goal" data-goal-id="' + goal.id + '">Edit</button>' +
+              '<button type="button" data-action="delete-goal" data-goal-id="' + goal.id + '">Delete</button>' +
+            "</div>" +
+          "</div></div>" +
         "</li>"
       );
     }
@@ -392,21 +464,59 @@
       progressLabelEl.textContent = completed + " of " + visible.length + " completed (" + percent + "%)";
     }
 
-    function renderPrintChecklist(visible) {
+    function renderStorageMeter() {
+      var bytes = new Blob([JSON.stringify(goals)]).size;
+      var percent = Math.min(100, Math.round((bytes / STORAGE_LIMIT_BYTES) * 100));
+      var mb = (bytes / (1024 * 1024)).toFixed(2);
+
+      storageFillEl.style.width = percent + "%";
+      storageFillEl.classList.toggle("storage-fill-warning", percent >= 80);
+
+      var label = mb + " MB of about 5 MB of browser storage used";
+      if (percent >= 80) {
+        label += " — getting close to the limit. Consider removing a photo or two.";
+      }
+      storageLabelEl.textContent = label;
+    }
+
+    function groupByCategory(visible) {
       var groups = {};
       visible.forEach(function (goal) {
         groups[goal.category] = groups[goal.category] || [];
         groups[goal.category].push(goal);
       });
-
-      printChecklistEl.innerHTML = Object.keys(CATEGORY_LABELS)
+      return Object.keys(CATEGORY_LABELS)
         .filter(function (category) {
           return groups[category] && groups[category].length;
         })
         .map(function (category) {
+          return { category: category, label: CATEGORY_LABELS[category], goals: groups[category] };
+        });
+    }
+
+    function renderGoalGroups(visible) {
+      return groupByCategory(visible)
+        .map(function (group) {
+          var itemsHtml = group.goals
+            .map(function (g) {
+              return editingId === g.id ? renderGoalForm(g) : renderCard(g);
+            })
+            .join("");
           return (
-            '<div class="print-group"><h3 class="print-group-title">' + CATEGORY_LABELS[category] + "</h3>" +
-            '<ul class="print-group-list">' + groups[category].map(renderCard).join("") + "</ul></div>"
+            '<section class="category-group"><h2 class="category-group-title category-group-title-' + group.category + '">' +
+              group.label +
+            "</h2><ul class=\"goal-list\">" + itemsHtml + "</ul></section>"
+          );
+        })
+        .join("");
+    }
+
+    function renderPrintChecklist(visible) {
+      printChecklistEl.innerHTML = groupByCategory(visible)
+        .map(function (group) {
+          return (
+            '<div class="print-group"><h3 class="print-group-title">' + group.label + "</h3>" +
+            '<ul class="print-group-list">' + group.goals.map(renderCard).join("") + "</ul></div>"
           );
         })
         .join("");
@@ -420,18 +530,12 @@
 
       countEl.textContent = visible.length + " of " + goals.length + " goals";
       renderProgress(visible);
+      renderStorageMeter();
 
-      var cardsHtml = visible
-        .map(function (g) {
-          return editingId === g.id ? renderGoalForm(g) : renderCard(g);
-        })
-        .join("");
+      var addFormHtml = isAdding ? '<ul class="goal-list">' + renderGoalForm(null) + "</ul>" : "";
+      var groupsHtml = renderGoalGroups(visible);
 
-      if (isAdding) {
-        cardsHtml = renderGoalForm(null) + cardsHtml;
-      }
-
-      listEl.innerHTML = cardsHtml || '<li class="empty-state">No goals match these filters.</li>';
+      listEl.innerHTML = addFormHtml + groupsHtml || '<p class="empty-state">No goals match these filters.</p>';
 
       renderPrintChecklist(visible);
       renderTodaysGoal();
@@ -508,22 +612,91 @@
           Object.assign(existing, fields);
           editingId = null;
         } else {
-          goals.push(Object.assign({ id: slugify(fields.title), status: "not-started", notes: "" }, fields));
+          goals.push(Object.assign({ id: slugify(fields.title), status: "not-started", notes: "", imagePath: null }, fields));
           isAdding = false;
         }
         saveGoals();
         render();
+        return;
       }
+
+      var removePhotoBtn = e.target.closest('[data-action="remove-photo"]');
+      if (removePhotoBtn) {
+        var photoGoal = goals.filter(function (g) { return g.id === removePhotoBtn.dataset.goalId; })[0];
+        photoGoal.imagePath = null;
+        saveGoals();
+        render();
+        return;
+      }
+
+      if (e.target.closest("a, button, input, textarea, select, label")) return;
+
+      var card = e.target.closest(".goal-card");
+      if (!card || card.classList.contains("goal-form")) return;
+
+      var cardId = card.dataset.goalId;
+      if (expandedIds[cardId]) {
+        delete expandedIds[cardId];
+      } else {
+        expandedIds[cardId] = true;
+      }
+      card.classList.toggle("expanded");
     });
+
+    function handlePhotoUpload(input) {
+      var file = input.files && input.files[0];
+      if (!file) return;
+
+      if (file.type.indexOf("image/") !== 0) {
+        window.alert("Please choose an image file.");
+        input.value = "";
+        return;
+      }
+
+      if (file.size > MAX_PHOTO_BYTES) {
+        var tooBig = window.confirm(
+          "That photo is " + (file.size / (1024 * 1024)).toFixed(1) + " MB — large photos can fill up your " +
+          "browser's storage quickly. Add it anyway?"
+        );
+        if (!tooBig) {
+          input.value = "";
+          return;
+        }
+      }
+
+      var reader = new FileReader();
+      reader.onload = function () {
+        var goal = goals.filter(function (g) { return g.id === input.dataset.goalId; })[0];
+        var previous = goal.imagePath;
+        goal.imagePath = reader.result;
+        var ok = saveGoals();
+        if (!ok) {
+          goal.imagePath = previous;
+          window.alert("Couldn't save that photo — your browser's storage is full. Try removing another photo first.");
+        }
+        render();
+      };
+      reader.onerror = function () {
+        window.alert("Couldn't read that file. Try a different photo.");
+      };
+      reader.readAsDataURL(file);
+    }
 
     listEl.addEventListener("change", function (e) {
       var ta = e.target.closest('[data-action="notes"]');
-      if (!ta) return;
-      var goal = goals.filter(function (g) {
-        return g.id === ta.dataset.goalId;
-      })[0];
-      goal.notes = ta.value;
-      saveGoals();
+      if (ta) {
+        var goal = goals.filter(function (g) {
+          return g.id === ta.dataset.goalId;
+        })[0];
+        goal.notes = ta.value;
+        saveGoals();
+        return;
+      }
+
+      var fileInput = e.target.closest('[data-action="upload-photo"]');
+      if (fileInput) {
+        handlePhotoUpload(fileInput);
+      }
     });
 
     render();

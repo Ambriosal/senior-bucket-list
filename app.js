@@ -18,6 +18,7 @@
   let goals = [];
   let places = [];
   let placesSchemaDoc = [];
+  const expandedIds = new Set();
 
   function todayKey() {
     const d = new Date();
@@ -100,11 +101,23 @@
       ? `<a href="${goal.link}" target="_blank" rel="noopener">${goal.title}</a>`
       : goal.title;
 
+    const expandedClass = expandedIds.has(goal.id) ? " expanded" : "";
+    const notesHtml = goal.notes ? `<p class="goal-notes">${goal.notes}</p>` : "";
+    const imageHtml = goal.imagePath
+      ? `<img class="goal-image" src="${goal.imagePath}" alt="${goal.title}" loading="lazy">`
+      : "";
+    const expandBody = notesHtml || imageHtml
+      ? notesHtml + imageHtml
+      : `<p class="goal-notes-empty">No notes yet.</p>`;
+
     return `
-      <li class="goal-card" data-status="${goal.status}">
+      <li class="goal-card${expandedClass}" data-status="${goal.status}" data-goal-id="${goal.id}">
         <h2>${title}</h2>
         <div class="badges">${renderBadges(goal)}</div>
-        ${goal.notes ? `<p class="goal-notes">${goal.notes}</p>` : ""}
+        <span class="expand-indicator" aria-hidden="true">&#9662;</span>
+        <div class="goal-expand">
+          <div class="goal-expand-inner">${expandBody}</div>
+        </div>
       </li>
     `;
   }
@@ -171,6 +184,20 @@
 
   filterGroups.forEach((group) => {
     group.addEventListener("change", render);
+  });
+
+  listEl.addEventListener("click", (e) => {
+    if (e.target.closest("a, button, input, textarea, select, label")) return;
+    const card = e.target.closest(".goal-card");
+    if (!card) return;
+
+    const id = card.dataset.goalId;
+    if (expandedIds.has(id)) {
+      expandedIds.delete(id);
+    } else {
+      expandedIds.add(id);
+    }
+    card.classList.toggle("expanded");
   });
 
   // --- Campus map pins (places.json) ---

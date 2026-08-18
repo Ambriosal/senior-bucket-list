@@ -13,10 +13,17 @@
   --color-cat-volunteering: #8A6FA3;
   --color-cat-seasonal: #C77B3C;
   --color-cat-city: #7C8CA6;
+
+  --font-heading: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  font-size: 120%;
 }
 
 body {
@@ -24,8 +31,12 @@ body {
   padding: 0 1.5rem 3rem;
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
 }
 
 .page-header {
@@ -35,9 +46,25 @@ body {
   text-align: center;
 }
 
+.page-header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.site-logo {
+  height: 2.6rem;
+  width: auto;
+}
+
 .page-header h1 {
   margin: 0 0 0.4rem;
   font-size: 2rem;
+}
+
+.page-header-title h1 {
+  margin: 0;
 }
 
 .subtitle {
@@ -239,13 +266,21 @@ main {
 }
 
 .goal-card {
+  position: relative;
   background: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: 16px;
   padding: 1.1rem;
+  padding-right: 2.4rem;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.goal-card:hover {
+  border-color: var(--color-accent);
 }
 
 .goal-card h2 {
@@ -262,6 +297,50 @@ main {
 
 .goal-card h2 a:hover {
   color: var(--color-accent);
+}
+
+.expand-indicator {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  color: var(--color-muted);
+  transition: transform 0.25s ease;
+}
+
+.goal-card.expanded .expand-indicator {
+  transform: rotate(180deg);
+}
+
+.goal-expand {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.goal-card.expanded .goal-expand {
+  grid-template-rows: 1fr;
+}
+
+.goal-expand-inner {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.goal-notes-empty {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.goal-image {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
 }
 
 .badges {
@@ -611,9 +690,7 @@ main {
   }
 
   .goal-card {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
+    display: block;
     background: transparent;
     border: none;
     border-bottom: 1px solid #ccc;
@@ -625,6 +702,7 @@ main {
   .goal-card h2 {
     font-size: 1rem;
     font-weight: 400;
+    margin: 0;
   }
 
   .goal-card h2::before {
@@ -635,13 +713,29 @@ main {
     content: "\2611  ";
   }
 
-  .goal-card .badges {
+  .goal-card .badges,
+  .goal-card .expand-indicator {
     display: none;
   }
 
-  .goal-card .goal-notes {
+  .goal-card .goal-expand {
+    display: block;
+  }
+
+  .goal-card .goal-expand-inner {
+    overflow: visible;
+    margin: 0.2rem 0 0 1.3rem;
+  }
+
+  .goal-card .goal-notes,
+  .goal-card .goal-notes-empty {
     color: #555;
     font-size: 0.8rem;
+  }
+
+  .goal-card .goal-image {
+    max-width: 200px;
+    max-height: 150px;
   }
 
   .goal-card h2 a {

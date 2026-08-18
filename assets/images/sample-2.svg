@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#4C8C86"/>
+  <rect x="24" y="24" width="752" height="552" fill="none" stroke="#FBF7F1" stroke-width="3" stroke-dasharray="10 8"/>
+  <circle cx="400" cy="250" r="90" fill="#FBF7F1" opacity="0.15"/>
+  <text x="400" y="270" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#FBF7F1" text-anchor="middle">Sample Photo</text>
+  <text x="400" y="310" font-family="-apple-system, Segoe UI, sans-serif" font-size="18" fill="#FBF7F1" text-anchor="middle" opacity="0.85">Kayaking on the Grand River — placeholder</text>
+  <text x="400" y="560" font-family="-apple-system, Segoe UI, sans-serif" font-size="14" fill="#FBF7F1" text-anchor="middle" opacity="0.6">assets/images/sample-2.svg · replace with a real photo</text>
+</svg>
