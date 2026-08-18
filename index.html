@@ -19,6 +19,7 @@
     <p class="subtitle">Everything I want to do before I graduate.</p>
     <div class="header-actions">
       <button type="button" id="printBtn" class="print-btn">Print / Save as PDF</button>
+      <a href="campus-map.html" class="print-btn">Campus Map</a>
       <a href="make-it-yours.html" class="print-btn">Make it yours</a>
     </div>
   </header>
@@ -88,20 +89,6 @@
     <div id="goalList" aria-live="polite"></div>
 
     <div class="print-checklist" id="printChecklist"></div>
-
-    <section class="campus-map" aria-label="Campus map">
-      <h2>Campus Map</h2>
-      <p class="map-hint">
-        Click an empty spot to drop a pin with a title, a note, and some tags.
-        Click an existing pin to view, edit, or delete it.
-      </p>
-      <div class="map-container" id="mapContainer">
-        <img src="map1.png" alt="University of Guelph campus map" id="mapImage">
-      </div>
-      <button type="button" id="downloadPlacesBtn" class="download-btn" hidden>
-        Download updated places.json
-      </button>
-    </section>
   </main>
 
   <script src="app.js"></script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Map — Senior Year Bucket List</title>
+  <link rel="icon" type="image/png" href="gryphon-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="page-header">
+    <div class="page-header-title">
+      <img src="gryphon-logo.png" alt="Gryphon logo" class="site-logo">
+      <h1>Campus Map</h1>
+    </div>
+    <p class="subtitle">Spots worth remembering, pinned as I find them.</p>
+  </header>
+
+  <main>
+    <section class="campus-map" aria-label="Campus map">
+      <p class="map-hint">
+        Click an empty spot to drop a pin with a title, a note, and some tags.
+        Click an existing pin to view, edit, or delete it.
+      </p>
+      <div class="map-container" id="mapContainer">
+        <img src="map1.png" alt="University of Guelph campus map" id="mapImage">
+      </div>
+      <button type="button" id="downloadPlacesBtn" class="download-btn" hidden>
+        Download updated places.json
+      </button>
+    </section>
+
+    <p class="page-back"><a href="index.html">&larr; Back to the list</a></p>
+  </main>
+
+  <script src="map.js"></script>
+</body>
+</html>

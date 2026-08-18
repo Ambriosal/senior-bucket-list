@@ -412,15 +412,6 @@ main {
   display: none;
 }
 
-.campus-map {
-  margin-top: 2.5rem;
-}
-
-.campus-map h2 {
-  margin: 0 0 0.25rem;
-  font-size: 1.3rem;
-}
-
 .map-hint {
   margin: 0 0 1rem;
   color: var(--color-muted);
@@ -625,16 +616,16 @@ main {
   font-size: 0.85rem;
 }
 
-.mit-back {
+.page-back {
   margin-top: 1.25rem;
 }
 
-.mit-back a {
+.page-back a {
   color: var(--color-muted);
   text-decoration: none;
 }
 
-.mit-back a:hover {
+.page-back a:hover {
   color: var(--color-accent);
 }
 
@@ -650,8 +641,7 @@ main {
   .progress,
   .filters,
   .result-count,
-  .category-group,
-  .campus-map {
+  .category-group {
     display: none !important;
   }
 
