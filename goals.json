@@ -36,8 +36,8 @@
       "frequency": "ongoing",
       "effort": "complex",
       "link": null,
-      "status": "not-started",
-      "notes": "",
+      "status": "in-progress",
+      "notes": "Signed up and waiting!",
       "imagePath": null,
       "mapCoords": null
     },
@@ -84,8 +84,8 @@
       "frequency": "one-time",
       "effort": "complex",
       "link": null,
-      "status": "not-started",
-      "notes": "",
+      "status": "in-progress",
+      "notes": "Officially the Creative Director of the Guelph Black Professionals",
       "imagePath": null,
       "mapCoords": null
     },
@@ -144,8 +144,8 @@
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
-      "status": "not-started",
-      "notes": "Just to feel young again",
+      "status": "done",
+      "notes": "O-Week was so fun! Met many people, got stickers, and free food! ",
       "imagePath": null,
       "mapCoords": null
     },
@@ -156,8 +156,8 @@
       "frequency": "ongoing",
       "effort": "simple",
       "link": null,
-      "status": "not-started",
-      "notes": "",
+      "status": "in-progress",
+      "notes": "First floor!",
       "imagePath": null,
       "mapCoords": null
     },
@@ -409,7 +409,7 @@
       "effort": "simple",
       "link": null,
       "status": "not-started",
-      "notes": "",
+      "notes": "My friend knows quite a few spots, its in the plans!",
       "imagePath": null,
       "mapCoords": null
     },
@@ -494,6 +494,18 @@
       "link": null,
       "status": "not-started",
       "notes": "",
+      "imagePath": null,
+      "mapCoords": null
+    },
+    {
+      "id": "safewalk",
+      "title": "Press the Safewalk",
+      "category": "clubs-involvements",
+      "frequency": "one-time",
+      "effort": "simple",
+      "link": null,
+      "status": "not-started",
+      "notes": "Recently learned you don't need to be in danger to click it.",
       "imagePath": null,
       "mapCoords": null
     }
