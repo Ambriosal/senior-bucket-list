@@ -15,7 +15,7 @@
     "Bump lastUpdated whenever you commit a goals.json change so the page header stays accurate.",
     "Visitors own copies live in localStorage only and never write back here."
   ],
-  "lastUpdated": "2026-08-18",
+  "lastUpdated": "2026-09-17",
   "goals": [
     {
       "id": "visit-campus-buildings",
@@ -25,7 +25,7 @@
       "effort": "complex",
       "link": null,
       "status": "in-progress",
-      "notes": "Had classes in new buildings. ANNU and PAHL!",
+      "notes": "Explored LANG for the first time in a long time.",
       "imagePath": "assets/images/sample-1.svg",
       "mapCoords": null
     },
@@ -84,7 +84,7 @@
       "frequency": "one-time",
       "effort": "complex",
       "link": null,
-      "status": "in-progress",
+      "status": "done",
       "notes": "Officially the Creative Director of the Guelph Black Professionals",
       "imagePath": null,
       "mapCoords": null
@@ -157,7 +157,7 @@
       "effort": "simple",
       "link": null,
       "status": "in-progress",
-      "notes": "First floor!",
+      "notes": "Level 0, Level 1 completed.",
       "imagePath": null,
       "mapCoords": null
     },
@@ -324,8 +324,8 @@
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
-      "status": "not-started",
-      "notes": "",
+      "status": "done",
+      "notes": "Joined Improv class! Learned some fun games and anything can be acting.",
       "imagePath": null,
       "mapCoords": null
     },
@@ -456,8 +456,8 @@
       "frequency": "one-time",
       "effort": "simple",
       "link": null,
-      "status": "not-started",
-      "notes": "",
+      "status": "in-progress",
+      "notes": "Visited, but haven't played there yet.",
       "imagePath": null,
       "mapCoords": null
     },
@@ -506,6 +506,30 @@
       "link": null,
       "status": "not-started",
       "notes": "Recently learned you don't need to be in danger to click it.",
+      "imagePath": null,
+      "mapCoords": null
+    },
+    {
+      "id": "shakespear bar",
+      "title": "Visit Shakespeare's pub",
+      "category": "city",
+      "frequency": "one-time",
+      "effort": "simple",
+      "link": null,
+      "status": "not-started",
+      "notes": "Met someone that plays keys on Fridays.",
+      "imagePath": null,
+      "mapCoords": null
+    },
+    {
+      "id": "makerspace",
+      "title": "Make something at the Makerspace LANG",
+      "category": "clubs-involvements",
+      "frequency": "one-time",
+      "effort": "simple",
+      "link": null,
+      "status": "in-progress",
+      "notes": "Registered for their weekly Tuesday worksops",
       "imagePath": null,
       "mapCoords": null
     }
